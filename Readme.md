@@ -86,5 +86,5 @@ Here we also can add one more interface and passing values only for view models 
 
 ## Example in GIF:
 
-![Before Sync](gif/BeforeSync.gif)
-![With Sync](gif/WithSync.gif)
+<img src="gif/BeforeSync.gif" height="280">
+<img src="gif/WithSync.gif" height="280">
