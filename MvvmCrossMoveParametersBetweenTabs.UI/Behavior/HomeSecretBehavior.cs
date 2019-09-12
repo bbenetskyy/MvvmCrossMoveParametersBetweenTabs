@@ -11,7 +11,6 @@ namespace MvvmCrossMoveParametersBetweenTabs.UI.Behavior
     public class HomeSecretBehavior : Behavior<MvxTabbedPage<HomeViewModel>>
     {
         public MvxTabbedPage<HomeViewModel> AssociatedObject { get; private set; }
-        private IParametrizedViewModel _currentViewModel;
 
         protected override void OnAttachedTo(MvxTabbedPage<HomeViewModel> bindable)
         {
