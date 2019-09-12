@@ -9,6 +9,7 @@
     Title="Main page"
     x:TypeArguments="viewModels:HomeViewModel" >
 <TabbedPage.Behaviors>
-    <behavior:ParametrizedTabBehavior/>
-</TabbedPage.Behaviors>
+        <behavior:ParametrizedTabBehavior/>
+        <behavior:HomeSecretBehavior/>
+    </TabbedPage.Behaviors>
 </views:MvxTabbedPage>

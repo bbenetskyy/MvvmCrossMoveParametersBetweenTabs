@@ -5,22 +5,21 @@ using MvvmCross.Forms.Views;
 using MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Details;
 using MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Home;
 using Xamarin.Forms;
-using MvvmCross.ViewModels;
 
 namespace MvvmCrossMoveParametersBetweenTabs.UI.Behavior
 {
-    public class ParametrizedTabBehavior : Behavior<MvxTabbedPage>
+    public class HomeSecretBehavior : Behavior<MvxTabbedPage<HomeViewModel>>
     {
-        public MvxTabbedPage AssociatedObject { get; private set; }
+        public MvxTabbedPage<HomeViewModel> AssociatedObject { get; private set; }
         private IParametrizedViewModel _currentViewModel;
 
-        protected override void OnAttachedTo(MvxTabbedPage bindable)
+        protected override void OnAttachedTo(MvxTabbedPage<HomeViewModel> bindable)
         {
             bindable.CurrentPageChanged += Bindable_CurrentPageChanged;
             base.OnAttachedTo(bindable);
             AssociatedObject = bindable;
         }
-        protected override void OnDetachingFrom(MvxTabbedPage bindable)
+        protected override void OnDetachingFrom(MvxTabbedPage<HomeViewModel> bindable)
         {
             bindable.CurrentPageChanged -= Bindable_CurrentPageChanged;
             base.OnDetachingFrom(bindable);
@@ -29,18 +28,10 @@ namespace MvvmCrossMoveParametersBetweenTabs.UI.Behavior
 
         private void Bindable_CurrentPageChanged(object sender, EventArgs e)
         {
-            if (!(AssociatedObject?.CurrentPage is IMvxPage p))
+            if (AssociatedObject?.ViewModel == null || !(AssociatedObject.CurrentPage is IMvxPage p))
                 return;
 
-            if (!(p.ViewModel is IParametrizedViewModel newViewModel))
-                return;
-
-            if (_currentViewModel != null)
-            {
-                newViewModel.UserCollection = _currentViewModel.UserCollection;
-            }
-
-            _currentViewModel = newViewModel;
+            AssociatedObject.ViewModel.OnSelectedTabChanged(p.ViewModel);
         }
     }
 }

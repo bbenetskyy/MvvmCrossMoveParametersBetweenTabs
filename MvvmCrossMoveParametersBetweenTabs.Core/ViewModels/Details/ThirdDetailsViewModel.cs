@@ -28,14 +28,12 @@ namespace MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Details
         }
 
         public MvxCommand GenerateCommand { get; }
-        public MvxCommand GenerateSecretCommand { get; }
 
         public ThirdDetailsViewModel(IModelGenerator<User> generator)
         {
             _generator = generator;
             UserCollection = new ObservableCollection<User>();
             GenerateCommand = new MvxCommand(() => UserCollection.Add(_generator.GenerateModel()));
-            GenerateSecretCommand = new MvxCommand(() => SecretUser = _generator.GenerateModel());
         }
     }
 }

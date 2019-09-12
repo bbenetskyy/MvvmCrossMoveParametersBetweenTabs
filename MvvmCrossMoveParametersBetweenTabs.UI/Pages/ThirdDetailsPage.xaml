@@ -10,7 +10,6 @@
              x:Class="MvvmCrossMoveParametersBetweenTabs.UI.Pages.ThirdDetailsPage">
     <StackLayout>
         <Button Text="Generate New User" Command="{Binding GenerateCommand}" BackgroundColor="Black" TextColor="White"/>
-        <Button Text="Generate Secret User" Command="{Binding GenerateSecretCommand}" BackgroundColor="LightGray" TextColor="White"/>
         <Frame BorderColor="Gold" BackgroundColor="Black">
             <StackLayout Orientation="Horizontal">
                 <Label Text="{Binding SecretUser.FullName}" TextColor="Gold"/>

@@ -12,6 +12,7 @@ namespace MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Home
     {
         private readonly IMvxNavigationService _navigationService;
         private bool _firstTime = true;
+        private IMvxViewModel _previousViewModel;
 
         public HomeViewModel(IMvxNavigationService navigationService)
         {
@@ -36,6 +37,19 @@ namespace MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Home
                 ShowInitialViewModels();
                 _firstTime = false;
             }
+        }
+
+        public void OnSelectedTabChanged(IMvxViewModel selectedViewModel)
+        {
+            if (_previousViewModel != null)
+            {
+                if (_previousViewModel is DetailsViewModel d1
+                    && selectedViewModel is ThirdDetailsViewModel d3)
+                {
+                    d3.SecretUser = d1.SecretUser;
+                }
+            }
+            _previousViewModel = selectedViewModel;
         }
     }
 }
