@@ -85,6 +85,7 @@ Here we also can add one more interface and passing values only for view models 
 ```
 
 ## Example in GIF:
-
+<div>
 <img src="gif/BeforeSync.gif" height="280">
 <img src="gif/WithSync.gif" height="280">
+</div>
