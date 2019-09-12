@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewmodels:DetailsViewModel" xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:viewmodels="clr-namespace:MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Details;assembly=MvvmCrossMoveParametersBetweenTabs.Core"
+                      mc:Ignorable="d"
+                      Title="#1"
+                      x:Class="MvvmCrossMoveParametersBetweenTabs.UI.Pages.DetailsPage">
+    <StackLayout>
+        <Button Text="Generate New User" Command="{Binding GenerateCommand}" BackgroundColor="Black" TextColor="White"/>
+        <Button Text="Generate Secret User" Command="{Binding GenerateSecretCommand}" BackgroundColor="LightGray" TextColor="White"/>
+        <Frame BorderColor="Gold" BackgroundColor="Black">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding SecretUser.FullName}" TextColor="Gold"/>
+                <Label Text="{Binding SecretUser.IdString}" TextColor="White"/>
+            </StackLayout>
+        </Frame>
+        <ListView ItemsSource="{Binding UserCollection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding FullName}" Detail="{Binding IdString}" DetailColor="LightGray" TextColor="Turquoise"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</views:MvxContentPage>
