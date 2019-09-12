@@ -5,7 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Home;assembly=MvvmCrossMoveParametersBetweenTabs.Core"
     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:behavior="clr-namespace:MvvmCrossMoveParametersBetweenTabs.UI.Behavior;assembly=MvvmCrossMoveParametersBetweenTabs.UI"
     Title="Main page"
     x:TypeArguments="viewModels:HomeViewModel" >
-
+<TabbedPage.Behaviors>
+    <behavior:ParametrizedTabBehavior/>
+</TabbedPage.Behaviors>
 </views:MvxTabbedPage>

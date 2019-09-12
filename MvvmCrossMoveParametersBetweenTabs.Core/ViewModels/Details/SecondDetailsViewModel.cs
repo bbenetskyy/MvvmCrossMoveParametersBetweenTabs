@@ -12,7 +12,13 @@ namespace MvvmCrossMoveParametersBetweenTabs.Core.ViewModels.Details
     public class SecondDetailsViewModel : MvxViewModel, IParametrizedViewModel
     {
         private readonly IModelGenerator<User> _generator;
-        public ObservableCollection<User> UserCollection { get; set; }
+
+        private ObservableCollection<User> _userCollection;
+        public ObservableCollection<User> UserCollection
+        {
+            get => _userCollection;
+            set => SetProperty(ref _userCollection, value);
+        }
 
         public MvxCommand GenerateCommand { get; }
 
