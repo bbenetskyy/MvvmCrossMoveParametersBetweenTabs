@@ -23,7 +23,7 @@ public interface IParametrizedViewModel
 
 All our view models for tabs are implement it.
 
-#### [Solution](MvvmCrossMoveParametersBetweenTabs.UI\Behavior\ParametrizedTabBehavior.cs):
+#### [Solution](MvvmCrossMoveParametersBetweenTabs.UI/Behavior/ParametrizedTabBehavior.cs):
 
 1. Creating new class at your Xamarin.Forms project inherited from `Behavior<MvxTabbedPage>`
 2. Create two local fields: one for our bindable object(`AssociatedObject`) and second for last view model(`_currentViewModel`)
@@ -61,7 +61,7 @@ public User SecretUser
 
 Here we also can add one more interface and passing values only for view models that implement it. But here we want to pass that property from `DetailsViewModel` to `ThirdViewModel`, because the last one can't generate or modify it.
 
-#### [Solution](MvvmCrossMoveParametersBetweenTabs.UI\Behavior\HomeSecretBehavior.cs):
+#### [Solution](MvvmCrossMoveParametersBetweenTabs.UI/Behavior/HomeSecretBehavior.cs):
 
 1. Creating new class at your Xamarin.Forms project inherited from `Behavior<MvxTabbedPage<HomeViewModel>>` 
 2.  Create **one** local fields for our bindable object(`AssociatedObject`) 
@@ -86,5 +86,5 @@ Here we also can add one more interface and passing values only for view models 
 
 ## Example in GIF:
 
-![Before Sync](gif\BeforeSync.gif)
-![With Sync](gif\WithSync.gif)
+![Before Sync](gif/BeforeSync.gif)
+![With Sync](gif/WithSync.gif)
