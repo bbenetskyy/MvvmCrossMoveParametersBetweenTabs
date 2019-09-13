@@ -44,7 +44,7 @@ All our view models for tabs are implement it.
 </views:MvxTabbedPage>
 ```
 
-### Stongly Typed Way:
+### Strongly Typed Way:
 
 Here we want to cover only one specific scenario - passing Secret User. 
 
